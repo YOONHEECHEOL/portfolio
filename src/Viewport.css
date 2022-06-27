@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+#root {
+  overflow: hidden;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  padding: 2vh 0 10vh;
+  background-color: #111;
+  color: #fff;
+  perspective: 800px;
+  perspective-origin: center;
+}
+
+.wrapper .wrapper_rotate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: calc(100% - 40vw);
+  height: 100%;
+  padding: 5vw 10vh;
+  transform: rotateY(-20deg);
+}
+
+.pannel {
+  padding-top: 22vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  perspective-origin: left;
+}
+
+.pannel > div {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.pannel > div > span {
+  font-size: 20vh;
+  font-family: 'League Gothic', sans-serif;
+}
+
+.pannel > div:hover {
+  transform: rotateY(-20deg);
+}
+.pannel > div:hover > span {
+  color: rgb(255, 253, 126);
+}
+
+.fixed-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 5vh;
+  left: 5vw;
+  z-index: 999;
+  padding: 20px;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.fixed-menu a {
+  font-size: 2.4rem;
+}
+.fixed-menu > span, .fixed-menu a {
+  color: #fff;
+}
