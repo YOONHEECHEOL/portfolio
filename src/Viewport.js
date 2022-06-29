@@ -1,5 +1,9 @@
 import './Viewport.css';
 import { useEffect, useState } from 'react';
+import About from './About';
+import Study from './Study';
+import Projects from './Projects';
+import Resume from './Resume';
 
 const Viewport = () => {
   let [cnt, setCnt] = useState(0);
@@ -86,11 +90,12 @@ const Viewport = () => {
   }
 
   const stopScroll = () => {
-    document.querySelector('html').style.overflow = 'hidden';
+    window.pageYOffset = 0;
+    document.querySelector('body').style.overflow = 'hidden';
   }
 
   const startScroll = () => {
-    document.querySelector('html').style.overflow = 'scroll';
+    document.querySelector('body').style.overflow = 'scroll';
   }
 
   return (
@@ -143,6 +148,7 @@ const Viewport = () => {
 
       </div>
 
+      {/* About */}
       <div className="modal" id="modal-0" onMouseOver={() => { stopScroll(); }} onMouseOut={()=>{startScroll()}}>
         <div className="options">
           <div className="fixed-menu-close" onClick={() => {
@@ -152,50 +158,10 @@ const Viewport = () => {
           </div>
         </div>
 
-        <h1>About</h1>
-        <h3>🖐 안녕하세요! 주니어개발자 윤희철입니다.</h3>
-        <p>
-          웹 서비스로 가치와 감동을 전달하고 싶은 개발자 윤희철입니다. <br />
-          시각디자인을 전공하며, 서비스의 UI, UX에 관심을 가지게 되었고 학부생 때 게임 제작 동아리 활동을 하면서 개발자들과 협업할 일이 많았습니다. 서비스를 구현하는 개발자의 역할에 매력을 느껴서 최근까지 웹 퍼블리셔로 일하다가 개발자가 되기 위해 자바 웹 개발자 양성 과정을 6개월간 이수하고 신입 개발자로 지원하게 되었습니다.
-        </p>
-        <hr />
-
-        <h3>💬 Communication</h3>
-        <p>
-          의사소통의 시작은 듣는 것부터 시작한다고 생각합니다.<br />
-          먼저 다른 사람의 의견을 듣고 제 의견을 적극적으로 표현하고자 합니다.<br /><br />
-          어제보다 발전하는 것이 중요하다고 생각하며 항상 자기개발에 관심이 많습니다.<br />
-          꾸준히 기술과 지식을 습득하며 성장하는 사람이 되고 싶습니다.
-        </p>
-
-        <hr />
-        <h3>💻 Skill</h3>
-        <p>
-          
-        </p>
-
-        <hr />
-        <h3>📄 History</h3>
-        <p>
-          문제해결에 능한 개발자가 되고 싶습니다.<br />개발자로서 문제를 정의하고, 적합한 기술을 적용하여 문제를 해결하는데 능숙한 개발자로 성장하고자 합니다. 그러기 위해서 기술적인 실력 향상 뿐만 아니라 서비스를 보는 인사이트를 키우기 위해  노력하고 있습니다.
-        </p>
-
-        <hr />
-        <h3>💳 License</h3>
-        <p>
-          정보처리기사(필기)
-          SQL-D
-          GTQ
-          GTQ-I
-        </p>
-
-        <hr />
-        <h3>💪 Next</h3>
-        <p>
-          문제해결에 능한 개발자가 되자.
-        </p>
+        <About />
       </div>
 
+      {/* Study */}
       <div className="modal" id="modal-1">
         <div className="options">
           <div className="fixed-menu-close" onClick={() => {
@@ -204,9 +170,11 @@ const Viewport = () => {
             <i className="fa-solid fa-xmark"></i>
           </div>
         </div>
-        <h1>modal-1</h1>
+
+        <Study />
       </div>
 
+      {/* Projects */}
       <div className="modal" id="modal-2">
         <div className="options">
           <div className="fixed-menu-close" onClick={() => {
@@ -215,9 +183,11 @@ const Viewport = () => {
             <i className="fa-solid fa-xmark"></i>
           </div>
         </div>
-        modal-2
+        
+        <Projects / >
       </div>
 
+      {/* Resume */}
       <div className="modal" id="modal-3">
         <div className="options">
           <div className="fixed-menu-close" onClick={() => {
@@ -226,7 +196,8 @@ const Viewport = () => {
             <i className="fa-solid fa-xmark"></i>
           </div>
         </div>
-        modal-3
+      
+        <Resume />
       </div>
     </>
   );
