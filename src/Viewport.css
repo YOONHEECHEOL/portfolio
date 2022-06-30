@@ -196,3 +196,8 @@ table.skills th, table.skills td {
   font-size: 1.8rem;
   color: #fff;
 }
+.project_desc {
+  font-size: 12px;
+  color: #bbb;
+  line-height: 12px;
+} 
