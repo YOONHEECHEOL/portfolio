@@ -7,7 +7,7 @@ import Resume from './Resume';
 
 const Viewport = () => {
   let [cnt, setCnt] = useState(0);
-  let [title, setTitle] = useState(['About', 'Study', 'Projects', 'Resume'])
+  let [title, setTitle] = useState(['About', 'Study', 'Skills', 'Projects', 'Resume'])
 
   let arr = [];
 
