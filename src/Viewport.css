@@ -94,23 +94,28 @@ span.resume {
   top: -100vh;
   left: 50%;
   width: 800px;
-  height: calc(100vh - 120px - 5vh);
-  padding: 60px;
+  height: calc(100vh - 60px - 5vh);
+  padding: 37px 0 0 0;
   border: 1px solid #fff;
   z-index: 998;
   transform: translate(-50%);
   transition: all .4s ease-in-out;
-  overflow: scroll;
+  overflow: hidden;
   border-radius: 4px;
   word-break: keep-all;
+  background-color: #111;
 }
 .modal.active {
   display: block;
   opacity: 1;
 }
-
+.modal > .modal_desc {
+  overflow: scroll;
+  height: 100%;
+  padding: 0 60px 60px 60px;
+}
 .modal > .options {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -127,10 +132,11 @@ span.resume {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  z-index: 999;
+  z-index: 997;
   padding: 20px;
   border: 1px solid #fff;
   color: #fff;
+  background-color: #111;
 }
 .fixed-menu a {
   font-size: 2.4rem;
@@ -201,3 +207,65 @@ table.skills th, table.skills td {
   color: #bbb;
   line-height: 12px;
 } 
+
+.ni {
+  color: #444;
+}
+
+/* tablet */
+@media screen and (max-width: 768px) {
+    .wrapper {
+    justify-content: center;
+  }
+  .wrapper .wrapper_rotate {
+    justify-content: left;
+    width: 0;
+    padding: 10vh 5vw;
+  }
+  .pannel > div > span {
+    font-size: 18vh;
+  }
+}
+.history {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.history > div:nth-child(2n-1) {
+  width: 25%;  
+}
+.history > div:nth-child(2n) {
+  width: 75%;
+}
+
+/* mobile */
+@media screen and (max-width: 420px) {
+  .wrapper {
+    justify-content: left;
+  }
+  .wrapper .wrapper_rotate {
+    justify-content: left;
+    width: 0;
+    padding: 10vh 5vw;
+  }
+  .pannel > div > span {
+    font-size: 18vh;
+  }
+  .fixed-menu {
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 2px);
+    padding: 0;
+  }
+  .fixed-menu_icons {
+    display: none;
+  }
+  .modal {
+    width: calc(100% - 2px);
+    padding: 5.2vh 0 5.1vh;
+  }
+  .modal > .modal_desc {
+    padding: 0 6vw 5.2vh 6vw;
+  }
+}

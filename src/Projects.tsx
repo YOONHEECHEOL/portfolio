@@ -2,7 +2,15 @@ import './Viewport.css';
 import { useEffect, useState } from 'react';
 
 const Projects = () => {
-  let data = [
+  interface Datas {
+    title: string,
+    info: string,
+    url: string,
+    desc: string[]
+  }
+
+
+  let data:Datas[] = [
     {
       title: '개발자 양성 교육 - 최종 프로젝트',
       info: '스크린 야구장 예약 및 매장 관리 서비스',

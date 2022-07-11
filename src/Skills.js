@@ -11,4 +11,4 @@ const Skills = () => {
   )
 }
 
-export default Study;
+export default Skills;

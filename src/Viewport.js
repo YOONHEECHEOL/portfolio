@@ -2,8 +2,9 @@ import './Viewport.css';
 import { useEffect, useState } from 'react';
 import About from './About';
 import Study from './Study';
-import Projects from './Projects';
+import Projects from './Projects.tsx';
 import Resume from './Resume';
+import Skills from './Skills';
 
 const Viewport = () => {
   let [cnt, setCnt] = useState(0);
@@ -30,7 +31,7 @@ const Viewport = () => {
       if (countDown === 0) return stopCount(timer);
       i++;
       countDown--;
-    }, 250)
+    }, 100)
   }
 
   // menu 숨기기
@@ -46,7 +47,7 @@ const Viewport = () => {
       if (countDown === 0) return stopCount(timer);
       i++;
       countDown--;
-    }, 250)
+    }, 100)
   }
 
   // timer 제거
@@ -67,7 +68,7 @@ const Viewport = () => {
     timer = setTimeout(() => {
       fadeIn(arr);
       stopCount(timer);
-    }, 250);
+    }, 100);
   }
 
 
@@ -86,7 +87,7 @@ const Viewport = () => {
     timer = setTimeout(() => {
       document.querySelector(`#modal-${i}`).style.top = '2.5vh';
       stopCount(timer);
-    }, 1400)
+    }, 1000)
   }
 
   const stopScroll = () => {
@@ -98,20 +99,25 @@ const Viewport = () => {
     document.querySelector('body').style.overflow = 'scroll';
   }
 
+  const FixedMenu = () => {
+    return (
+      <div className="fixed-menu">
+        <div className="fixed-menu_icons">
+          <a href="https://github.com/YOONHEECHEOL" target="_blank"><i className="fa-brands fa-github"></i></a>
+          <a href="mailto:luk2903201@gmil.com" target="_blank"><i className="fa-solid fa-at"></i></a>
+        </div>
+        <div>
+          <span>luk2903201@gmail.com</span>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
 
-      <div className="fixed-menu">
-        <div>
-          <a href="https://github.com/YOONHEECHEOL" target="_blank"><i className="fa-brands fa-github"></i></a>
-          <a href="mailto:luk2903201@gmil.com" target="_blank"><i className="fa-solid fa-at"></i></a>
-        </div>
-        <div>          
-          <span>luk2903201@gmail.com</span>
-        </div>
-        <span>YOON HEE CHEOL</span>
-      </div>
+      <FixedMenu />
 
       <div className="wrapper">
 
@@ -157,8 +163,9 @@ const Viewport = () => {
             <i className="fa-solid fa-xmark"></i>
           </div>
         </div>
-
-        <About />
+        <div className="modal_desc">
+          <About />
+        </div>
       </div>
 
       {/* Study */}
@@ -170,11 +177,12 @@ const Viewport = () => {
             <i className="fa-solid fa-xmark"></i>
           </div>
         </div>
-
-        <Study />
+        <div className="modal_desc">
+          <Study />
+        </div>
       </div>
 
-      {/* Projects */}
+      {/* Skills */}
       <div className="modal" id="modal-2">
         <div className="options">
           <div className="fixed-menu-close" onClick={() => {
@@ -183,11 +191,12 @@ const Viewport = () => {
             <i className="fa-solid fa-xmark"></i>
           </div>
         </div>
-        
-        <Projects / >
+        <div className="modal_desc">
+          <Skills / >
+        </div>
       </div>
 
-      {/* Resume */}
+      {/* Projects */}
       <div className="modal" id="modal-3">
         <div className="options">
           <div className="fixed-menu-close" onClick={() => {
@@ -196,8 +205,23 @@ const Viewport = () => {
             <i className="fa-solid fa-xmark"></i>
           </div>
         </div>
-      
-        <Resume />
+        <div className="modal_desc">
+          <Projects / >
+        </div>
+      </div>
+
+      {/* Resume */}
+      <div className="modal" id="modal-4">
+        <div className="options">
+          <div className="fixed-menu-close" onClick={() => {
+            removeModal(arr);
+          }}>
+            <i className="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <div className="modal_desc">
+          <Resume />
+        </div>
       </div>
     </>
   );
